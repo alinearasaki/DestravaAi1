@@ -26,3 +26,23 @@
   </script>
 </body>
 </html>
+<div id="ios-prompt" style="display: none; position: fixed; bottom: 20px; left: 20px; right: 20px; background: #ffffff; color: #333; padding: 16px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.15); z-index: 9999; font-family: sans-serif; text-align: center;">
+  <p style="margin: 0 0 8px 0; font-size: 14px; line-height: 1.4;">
+    Para instalar este app no seu iPhone: toque no ícone de <strong>Compartilhar</strong> <span style="font-size: 16px;">⎋</span> e depois em <strong>"Adicionar à Tela de Início"</strong> <span style="font-size: 16px;">➕</span>.
+  </p>
+  <button onclick="document.getElementById('ios-prompt').style.display='none'" style="background: #007aff; color: white; border: none; padding: 6px 16px; border-radius: 6px; font-weight: bold; cursor: pointer;">Entendi</button>
+</div>
+<script>
+  function isIOS() {
+    return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+  }
+
+  function isStandalone() {
+    return ('standalone' in window.navigator) && (window.navigator.standalone);
+  }
+
+  // Exibe o aviso apenas se for iOS e NÃO estiver instalado ainda
+  if (isIOS() && !isStandalone()) {
+    document.getElementById('ios-prompt').style.display = 'block';
+  }
+</script>
