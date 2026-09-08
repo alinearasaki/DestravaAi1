@@ -32,17 +32,3 @@
   </p>
   <button onclick="document.getElementById('ios-prompt').style.display='none'" style="background: #007aff; color: white; border: none; padding: 6px 16px; border-radius: 6px; font-weight: bold; cursor: pointer;">Entendi</button>
 </div>
-<script>
-  function isIOS() {
-    return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-  }
-
-  function isStandalone() {
-    return ('standalone' in window.navigator) && (window.navigator.standalone);
-  }
-
-  // Exibe o aviso apenas se for iOS e NÃO estiver instalado ainda
-  if (isIOS() && !isStandalone()) {
-    document.getElementById('ios-prompt').style.display = 'block';
-  }
-</script>
